@@ -1,9 +1,25 @@
+function mesaj_getir(karakter_isim_veya_id,mesaj, fonksiyon_baslatma_zamani = 0, beraber_calisacak_fonksiyon = null) {
+    return getMessage(karakter_isim_veya_id,mesaj, fonksiyon_baslatma_zamani, beraber_calisacak_fonksiyon);
+};
+
+function arama_getir(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0, otomatik_kapatma_zamani = null, arama_kabul_edilirse, arama_reddedilirse, arama_kacirilirsa, konusma_bittiginde_kapatilirsa, konusma_bitmeden_kapatilirsa) {
+    return get_callModal(karakter_isim_veya_id, fonksiyon_baslatma_zamani, otomatik_kapatma_zamani, arama_kabul_edilirse, arama_reddedilirse, arama_kacirilirsa, konusma_bittiginde_kapatilirsa, konusma_bitmeden_kapatilirsa);
+};
+
+function konusma_sesi_oynat(karakter_isim_veya_id, ses_dosyasi, fonksiyon_baslatma_zamani = 0, yeni_arama = true) {
+    return playSpeechSound(karakter_isim_veya_id, ses_dosyasi, fonksiyon_baslatma_zamani, yeni_arama);
+};
+
+function sahneyi_getir(sahne_adi, fonksiyon_baslatma_zamani = 0){
+    return nextStage(sahne_adi, fonksiyon_baslatma_zamani);
+}
+
 function karakter_getir(karakter_isim_veya_id) {
     return get_character(karakter_isim_veya_id);
 };
 
-function mesaj_getir(karakter_isim_veya_id,mesaj, fonksiyon_baslatma_zamani = 0, beraber_calisacak_fonksiyon = null) {
-    return getMessage(karakter_isim_veya_id,mesaj, fonksiyon_baslatma_zamani, beraber_calisacak_fonksiyon);
+function karakterin_özelligini_degistir(karakter_isim_veya_id, ozellik_adi, yeni_deger, fonksiyon_baslatma_zamani = 0, program_veya_manuel = false) {
+    return character_content_change(karakter_isim_veya_id, ozellik_adi, yeni_deger, fonksiyon_baslatma_zamani, program_veya_manuel);
 };
 
 function mesaj_gecmisini_sil(karakter_isim_veya_id = null, spesifik_veya_herkes, fonksiyon_baslatma_zamani = 0) {
@@ -34,17 +50,9 @@ function konusma_sesi_olustur(ses_dosyasi) {
     return createSpeechSound(ses_dosyasi);
 };
 
-function konusma_sesi_oynat(karakter_isim_veya_id, ses_dosyasi, fonksiyon_baslatma_zamani = 0, yeni_arama = true) {
-    return playSpeechSound(karakter_isim_veya_id, ses_dosyasi, fonksiyon_baslatma_zamani, yeni_arama);
-};
-
 function konusma_bitis_belirteci(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0) {
     return get_screen(karakter_isim_veya_id, fonksiyon_baslatma_zamani);
 }
-
-function arama_getir(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0, otomatik_kapatma_zamani = null, arama_kabul_edilirse, arama_reddedilirse, arama_kacirilirsa, konusma_bittiginde_kapatilirsa, konusma_bitmeden_kapatilirsa) {
-    return get_callModal(karakter_isim_veya_id, fonksiyon_baslatma_zamani, otomatik_kapatma_zamani, arama_kabul_edilirse, arama_reddedilirse, arama_kacirilirsa, konusma_bittiginde_kapatilirsa, konusma_bitmeden_kapatilirsa);
-};
 
 function aramayi_kapat(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0) {
     return closeCall_ST(karakter_isim_veya_id, fonksiyon_baslatma_zamani);
@@ -61,11 +69,3 @@ function ekran_getir(karakter_isim_veya_id, tip = "message") {
 function sayac_olustur(fonksiyon_baslatma_zamani = 0) {
     return createTimer(fonksiyon_baslatma_zamani);
 };
-
-function karakterin_özelligini_degistir(karakter_isim_veya_id, ozellik_adi, yeni_deger, fonksiyon_baslatma_zamani = 0, program_veya_manuel = false) {
-    return character_content_change(karakter_isim_veya_id, ozellik_adi, yeni_deger, fonksiyon_baslatma_zamani, program_veya_manuel);
-};
-
-function sahneyi_oynat(sahne_adi, fonksiyon_baslatma_zamani = 0){
-    return nextStage(sahne_adi, fonksiyon_baslatma_zamani);
-}

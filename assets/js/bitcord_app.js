@@ -1073,7 +1073,7 @@ function getAllStages() {
     var stages = [];
     for (var i in window) {
         if ((typeof window[i]).toString() == "function") {
-            if (window[i].name.search("sahne") != -1 && window[i].name.search("sahneyi_oynat") == -1) {
+            if (window[i].name.search("sahne") != -1 && window[i].name.search("sahneyi_getir") == -1) {
                 stages.push(window[i].name);
             }
         }
