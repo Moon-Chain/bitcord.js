@@ -1161,7 +1161,7 @@ if (!debug_mode) {
         "closeButton": false
     }
     toastr["info"](
-        '<div><p>Kontrol Paneli<p><label class="switch"><input id="xdz" onchange="contextMenu()" type="checkbox"><span class="slider round"></span></label></div>'
+        '<div><p>Bağlam Menüsü<p><label class="switch"><input id="xdz" onchange="contextMenu()" type="checkbox"><span class="slider round"></span></label></div>'
     );
 
     rootDiv("visible");
