@@ -3,7 +3,6 @@
      var profile_file = "assets/images/profile/";
      const characters = [];
 
-
      // ------------------- Karakter Listesi ------------------- 
      characters[0] = {
          id: 0,
@@ -16,6 +15,8 @@
          show: false,
          closeCallST: false
      }
+
+     // Bu kısımdan sonra dilediğiniz karakterleri ekleyebilirsiniz
      characters[1] = {
          id: 1,
          img_url: profile_file + "hacker_team.webp",

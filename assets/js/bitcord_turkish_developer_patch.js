@@ -1,3 +1,8 @@
+/*!
+ *  Bu yama paketi geliştiriciler için tasarlanmıştır 
+ *  Uyumlu olduğu Bitcord sürümü: version beta_1.0.1 - Bitcord
+ */
+
 function mesaj_getir(karakter_isim_veya_id,mesaj, fonksiyon_baslatma_zamani = 0, beraber_calisacak_fonksiyon = null) {
     return getMessage(karakter_isim_veya_id,mesaj, fonksiyon_baslatma_zamani, beraber_calisacak_fonksiyon);
 };
