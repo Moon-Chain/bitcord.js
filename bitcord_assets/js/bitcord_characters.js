@@ -1,6 +1,6 @@
      var random = Math.floor(Math.random() * 6);
      var random_discord_avatar = "https://cdn.discordapp.com/embed/avatars/" + random + ".png";
-     var profile_file = "assets/images/profile/";
+     var profile_file = "bitcord_assets/images/profile/";
      const characters = [];
 
      // ------------------- Karakter Listesi ------------------- 
