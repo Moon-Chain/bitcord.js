@@ -1,7 +1,7 @@
 # bitcord
 Bitcord - (Discord Simulation Framework)
 
-------------------------------- How To Use -------------------------------
+------------------------------- Başlarken -------------------------------
 
 ---- Dosya Ekleme ----
 
@@ -18,13 +18,13 @@ Bitcord - (Discord Simulation Framework)
 
 * Karakterlerinizi "bitcord_assets/js/bitcord_characters.js" dosyasına yazın
 
-* Dilediğiniz oyun senaryosunu için "bitcord_assets/js/bitcord_game.js" dosyasına yazın
+* Dilediğiniz oyun senaryosunu "bitcord_assets/js/bitcord_game.js" dosyasına yazın
 
 (Senaryoların karışmaması için her senaryoya ayrı bir function açmanız önerilir)
 
 
 
-------------------------------- Functions -------------------------------
+------------------------------- Fonksiyonlar -------------------------------
 
 1. mesaj_getir(karakter_isim_veya_id,mesaj, fonksiyon_baslatma_zamani = 0, beraber_calisacak_fonksiyon = null);
 
