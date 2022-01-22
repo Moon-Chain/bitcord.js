@@ -3,18 +3,23 @@ Bitcord - (Discord Simulation Framework)
 
 ------------------------------- How To Use -------------------------------
 
-* Dosya Ekleme
-Karakter görsellerini "bitcord_assets/images/profile/" klasörüne ekleyin
+---- Dosya Ekleme ----
+
+* Karakter görsellerini "bitcord_assets/images/profile/" klasörüne ekleyin
+
 (.webp uzantılı görsel kullanılması önerilir)
 
-Konuşma seslerini "bitcord_assets/sounds/speech_sounds/" klasörüne ekleyin
+* Konuşma seslerini "bitcord_assets/sounds/speech_sounds/" klasörüne ekleyin
+
 (sıkıştırılmış ses uzantıları önerilir, .mp3 kullanılabilir)
 
 
-* Kod
-Karakterlerinizi "bitcord_assets/js/bitcord_characters.js" dosyasına yazın
+---- Kod ----
 
-Dilediğiniz oyun senaryosunu için "bitcord_assets/js/bitcord_game.js" dosyasına yazın
+* Karakterlerinizi "bitcord_assets/js/bitcord_characters.js" dosyasına yazın
+
+* Dilediğiniz oyun senaryosunu için "bitcord_assets/js/bitcord_game.js" dosyasına yazın
+
 (Senaryoların karışmaması için her senaryoya ayrı bir function açmanız önerilir)
 
 
