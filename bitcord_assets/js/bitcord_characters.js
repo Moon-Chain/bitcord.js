@@ -89,7 +89,7 @@
          code_name: "bitcord_js",
          name: "Bitcord",
          surname: "JS",
-         display_name: "Bitcord",
+         display_name: "Bitcord JS",
          unread_message: 0,
          show: false,
          closeCallST: false
@@ -100,7 +100,7 @@
          code_name: "bitcord_nitro",
          name: "Bitcord",
          surname: "Nitro",
-         display_name: "Bitcord",
+         display_name: "Bitcord Nitro",
          unread_message: 0,
          show: false,
          closeCallST: false

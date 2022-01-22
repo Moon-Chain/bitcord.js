@@ -23,12 +23,16 @@ function karakter_getir(karakter_isim_veya_id) {
     return get_character(karakter_isim_veya_id);
 };
 
+function random_karakter_getir() {
+    return get_random_character();
+}
+
 function karakterin_özelligini_degistir(karakter_isim_veya_id, ozellik_adi, yeni_deger, fonksiyon_baslatma_zamani = 0, program_veya_manuel = false) {
     return character_content_change(karakter_isim_veya_id, ozellik_adi, yeni_deger, fonksiyon_baslatma_zamani, program_veya_manuel);
 };
 
-function mesaj_gecmisini_sil(karakter_isim_veya_id = null, spesifik_veya_herkes, fonksiyon_baslatma_zamani = 0) {
-    return deleteMessages(karakter_isim_veya_id, spesifik_veya_herkes, fonksiyon_baslatma_zamani);
+function mesaj_gecmisini_sil(karakter_isim_veya_id = true, fonksiyon_baslatma_zamani = 0) {
+    return deleteMessages(karakter_isim_veya_id, fonksiyon_baslatma_zamani);
 };
 
 function mesaj_getir_talebini_sil(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0) {

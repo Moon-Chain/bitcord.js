@@ -1,10 +1,10 @@
 /*!
- *  bitcord_beta_1.0.2.js
- *  Bitcord Framework version beta_1.0.2 by @moon-chain - https://moon-chain.github.io - Bitcord
+ *  bitcord_beta_1.0.3.js
+ *  Bitcord Framework version beta_1.0.3 by @moon-chain - https://moon-chain.github.io - Bitcord
  *  License - https://moon-chain.github.io/bitcord/license (CSS: MIT License) 
  */
 var startTime = Date.now();
-var bitcord_version = "beta_1.0.2";
+var bitcord_version = "beta_1.0.3";
 var timerInterval;
 var timerToast;
 var debug_mode = !1;
@@ -136,6 +136,11 @@ function get_character(name_or_id) {
     return_val == null ? return_val = characters[name_or_id] : null;
     return_val == null ? alert(name_or_id + " adlı kullanıcı bulunamadı, characters.js dosyasında bir hata olabilir.") : null;
     return return_val;
+}
+
+function get_random_character() {
+    rand_val = Math.floor(Math.random() * characters.length);
+    return characters[rand_val];
 }
 
 var chat_list = []
@@ -328,19 +333,20 @@ function getMessage(character_value, message, ms = 0, with_func = null) {
     }, 1)
 }
 
-function deleteMessages(character_value = null, select, time = 0) {
+function deleteMessages(character_value = true, time = 0) {
     return setTimeout(function () {
-        if (select == "all") {
+        if (character_value == true) {
             characters.forEach(ch => {
                 chat_list[ch.id] = [];
             });
+           if(JSON.stringify(last_screen) != JSON.stringify({})){
+               get_screen(last_screen.char_id, last_screen.name);
+           }
         } else {
-            if (character_value != null) {
-                character = get_character(character_value);
-                chat_list[character.id] = [];
-                if (character.id == last_screen.char_id) {
-                    get_screen(character.id, last_screen.name);
-                }
+            character = get_character(character_value);
+            chat_list[character.id] = [];
+            if (character.id == last_screen.char_id) {
+                get_screen(character.id, last_screen.name);
             }
         }
     }, time);
@@ -1009,22 +1015,59 @@ function cm_bitcord_guide() {
         cancelButtonText: '<i class="fa fa-ban"></i> Hayır',
     }).then((result) => {
         if (result.isConfirmed) {
-            bitcord_guide = getFunction("sahne_bitcord");
+            bitcord_guide = getFunction("guide_bitcord");
             if (bitcord_guide != false) {
                 Swal.fire({
                     icon: "success",
-                    title: "Sahne Yükleniyor...",
+                    title: "Kılavuz Yükleniyor...",
                     allowOutsideClick: false,
                     allowEscapeKey: false,
                     showConfirmButton: false,
                     showCancelButton: false,
                     timer: 1000,
                 }).then((result) => {
-                    sahne_bitcord();
+                    guide_bitcord();
                 });
             }
         }
     });
+}
+
+
+function cm_terminal() {
+    Swal.fire({
+        input: 'text',
+        inputAttributes: {
+            autocapitalize: 'off'
+        },
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showCancelButton: true,
+        confirmButtonText: '<i class="fa fa-check"></i> Çalıştır',
+        cancelButtonText: '<i class="fa fa-ban"></i> Kapat',
+        customClass: 'swal2-wide',
+    }).then((first_result) => {
+        if (first_result.isConfirmed) {
+            bitcord_guide = getFunction("guide_bitcord");
+            if (bitcord_guide != false) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Loading...",
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    showConfirmButton: false,
+                    showCancelButton: false,
+                    timer: 1000,
+                }).then((result) => {
+                    run_terminal_code(first_result.value);
+                });
+            }
+        }
+    });
+}
+
+function run_terminal_code(code) {
+    eval(code);
 }
 
 function select_stage(stage_name) {
@@ -1117,6 +1160,7 @@ function debugClick() {
 
 function getAllStages() {
     var stages = [];
+    stages.push("start_game");
     for (var i in window) {
         if ((typeof window[i]).toString() == "function") {
             if (window[i].name.search("sahne") != -1 && window[i].name.search("sahneyi_getir") == -1 && stages.indexOf(window[i].name) == -1) {
@@ -1141,6 +1185,7 @@ function getFunction(fname) {
 
     return stage;
 }
+
 
 if (get_debug_info != undefined) {
     debug_mode = (get_debug_info.toLowerCase() === 'true');
@@ -1206,7 +1251,7 @@ if (!debug_mode) {
     toastr.options = {
         "newestOnTop": false,
         "progressBar": false,
-        "positionClass": "toast-bottom-right",
+        "positionClass": "toast-top-right",
         "preventDuplicates": false,
         "onclick": null,
         disableTimeOut: true,
@@ -1223,6 +1268,25 @@ if (!debug_mode) {
     toastr.info(
         '<div style="text-align:center;"><p>Bağlam Menüsü<p><label class="switch"><input id="xdz" onchange="contextMenu()" type="checkbox"><span class="slider round"></span></label></div>'
     );
+
+    toastr.options = {
+        "newestOnTop": false,
+        "progressBar": false,
+        "positionClass": "toast-top-right",
+        "preventDuplicates": false,
+        "onclick": null,
+        disableTimeOut: true,
+        tapToDismiss: false,
+        closeButton: true,
+        extendedTimeOut: 0,
+        timeOut: 0,
+        "showEasing": "swing",
+        "hideEasing": "linear",
+        "showMethod": "fadeIn",
+        "hideMethod": "fadeOut",
+        "closeButton": true
+    }
+
     toastr.info('<div style="text-align:center;"><p> Current Bitcord Version</p> <p>' + bitcord_version + "<p></div>");
 
     rootDiv("visible");

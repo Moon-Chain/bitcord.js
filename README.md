@@ -1,5 +1,6 @@
 # bitcord
 Bitcord - (Discord Simulation Framework)
+Last Version - Beta_1.0.3
 
 ------------------------------- Başlarken -------------------------------
 
@@ -36,29 +37,33 @@ Bitcord - (Discord Simulation Framework)
 
 5. karakter_getir(karakter_isim_veya_id);
 
-6. karakterin_özelligini_degistir(karakter_isim_veya_id, ozellik_adi, yeni_deger, fonksiyon_baslatma_zamani = 0, program_veya_manuel = false);
+6. random_karakter_getir();
 
-7. mesaj_gecmisini_sil(karakter_isim_veya_id = null, spesifik_veya_herkes, fonksiyon_baslatma_zamani = 0);
+7. karakterin_özelligini_degistir(karakter_isim_veya_id, ozellik_adi, yeni_deger, fonksiyon_baslatma_zamani = 0, program_veya_manuel = false);
 
-8. mesaj_getir_talebini_sil(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0);
+8. mesaj_gecmisini_sil(karakter_isim_veya_id = null, spesifik_veya_herkes, fonksiyon_baslatma_zamani = 0);
 
-9. mesaj_sablonu_olustur(karakter_isim_veya_id, mesaj);
+9. mesaj_getir_talebini_sil(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0);
 
-10. buton_olustur(metin, tiklama_fonksiyonu, buton_style, buton_class, buton_id);
+10. mesaj_sablonu_olustur(karakter_isim_veya_id, mesaj);
 
-11. gorsel_olustur(gorsel_url, tiklama_fonksiyonu, gorsel_style, gorsel_class, gorsel_id);
+11. buton_olustur(metin, tiklama_fonksiyonu, buton_style, buton_class, buton_id);
 
-12. konusma_sesi_bul(dosya_adi);
+12. gorsel_olustur(gorsel_url, tiklama_fonksiyonu, gorsel_style, gorsel_class, gorsel_id);
 
-13. konusma_sesi_olustur(ses_dosyasi);
+13. konusma_sesi_bul(dosya_adi);
 
-14. konusma_bitis_belirteci(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0);
+14. konusma_sesi_olustur(ses_dosyasi);
 
-15. aramayi_kapat(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0);
+15. konusma_bitis_belirteci(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0);
 
-16. fake_bildirim(karakter_isim_veya_id, tip = "message", ses_oynat = null);
+16. aramayi_kapat(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0);
 
-17. ekran_getir(karakter_isim_veya_id, tip = "message");
+17. fake_bildirim(karakter_isim_veya_id, tip = "message", ses_oynat = null);
 
-18. sayac_olustur(fonksiyon_baslatma_zamani = 0);
+18. ekran_getir(karakter_isim_veya_id, tip = "message");
+
+19. sayac_olustur(fonksiyon_baslatma_zamani = 0);
+
+20. youtube_panel(link, panel_genislik = 760, panel_yukseklik = 415, id = null, kabul_buton_metni = null, kabul_edilirse = null, reddet_buton_metni = null, reddedilirse = null, iptal_buton_metni = null, iptal_edilirse = null);
 
