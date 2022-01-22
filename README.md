@@ -2,7 +2,13 @@
 Bitcord - (Discord Simulation Framework)
 Last Version - Beta_1.0.3
 
+![myfile](bitcord_assets/gifs/debug_mode.gif)
+
 ------------------------------- Başlarken -------------------------------
+
+* Hikaye yazmak için geliştirici modunu kullanmanız tavsiye edilir
+
+(Sol üstteki Discord logosuna 3 defa tıklayınca aktifleşir)
 
 ---- Dosya Ekleme ----
 
