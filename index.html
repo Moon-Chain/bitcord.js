@@ -20,13 +20,12 @@
     <input id="microphone_enable" type="hidden" value="false">
     <div id="contextMenu" class="context-menu" style="display: none; z-index: 999;">
         <ul class="cmenu">
-            <li class="share"><a href="javascript:void(0);" onclick="cm_stage_select_page()"><i
-                        class="fa fa-object-group" aria-hidden="true"></i> Sahneler</a></li>
-            <li class="link"><a href="javascript:void(0);" onclick="cm_character_select_page()"><i class="fa fa-users"
+            <li><a href="javascript:void(0);" onclick="cm_character_select_page()"><i class="fa fa-users"
                         aria-hidden="true"></i> Karakterler</a></li>
-            <li class="rename"><a href="#"><i class="fa fa-book" aria-hidden="true"></i> Bitcord Kılavuz</a></li>
-            <li class="rename"><a href="#"><i class="fa fa-graduation-cap" aria-hidden="true"></i>Bitcord Eğitici</a>
-            </li>
+            <li><a href="javascript:void(0);" onclick="cm_stage_select_page()"><i
+                        class="fa fa-object-group" aria-hidden="true"></i> Sahneler</a></li>
+            <li><a href="javascript:void(0);" onclick="cm_bitcord_guide()"><i class="fa fa-book"
+                        aria-hidden="true"></i> Bitcord Kılavuz</a></li>
         </ul>
     </div>
 
@@ -229,7 +228,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.0/dist/sweetalert2.min.js"></script>
     <script src="bitcord_assets/js/bitcord_characters.js"></script>
-    <script src="bitcord_assets/js/bitcord_beta_1.0.2.min.js"></script>
+    <script src="bitcord_assets/js/bitcord_beta_1.0.2.js"></script>
     <script src="bitcord_assets/js/bitcord_turkish_developer_patch.js"></script>
     <script src="bitcord_assets/js/bitcord_game.js"></script>
 </body>

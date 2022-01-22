@@ -997,6 +997,36 @@ function cm_character_select_page() {
     });
 }
 
+function cm_bitcord_guide() {
+    Swal.close();
+    Swal.fire({
+        icon: "info",
+        title: "Kılavuz başlatılsın mı ?",
+        allowOutsideClick: false,
+        allowEscapeKey: false,
+        showCancelButton: true,
+        confirmButtonText: '<i class="fa fa-check"></i> Evet',
+        cancelButtonText: '<i class="fa fa-ban"></i> Hayır',
+    }).then((result) => {
+        if (result.isConfirmed) {
+            bitcord_guide = getFunction("sahne_bitcord");
+            if (bitcord_guide != false) {
+                Swal.fire({
+                    icon: "success",
+                    title: "Sahne Yükleniyor...",
+                    allowOutsideClick: false,
+                    allowEscapeKey: false,
+                    showConfirmButton: false,
+                    showCancelButton: false,
+                    timer: 1000,
+                }).then((result) => {
+                    sahne_bitcord();
+                });
+            }
+        }
+    });
+}
+
 function select_stage(stage_name) {
     stage_buttons = document.querySelectorAll(".select_stage");
     stage_buttons.forEach(sb => {
@@ -1089,13 +1119,27 @@ function getAllStages() {
     var stages = [];
     for (var i in window) {
         if ((typeof window[i]).toString() == "function") {
-            if (window[i].name.search("sahne") != -1 && window[i].name.search("sahneyi_getir") == -1) {
+            if (window[i].name.search("sahne") != -1 && window[i].name.search("sahneyi_getir") == -1 && stages.indexOf(window[i].name) == -1) {
                 stages.push(window[i].name);
             }
         }
     }
 
     return stages;
+}
+
+function getFunction(fname) {
+    var stage = false;
+    for (var i in window) {
+        if ((typeof window[i]).toString() == "function") {
+            sc = window[i].name.toString() == fname;
+            if (sc != false) {
+                stage = window[i];
+            }
+        }
+    }
+
+    return stage;
 }
 
 if (get_debug_info != undefined) {
@@ -1176,9 +1220,10 @@ if (!debug_mode) {
         "hideMethod": "fadeOut",
         "closeButton": false
     }
-    toastr["info"](
-        '<div><p>Bağlam Menüsü<p><label class="switch"><input id="xdz" onchange="contextMenu()" type="checkbox"><span class="slider round"></span></label></div>'
+    toastr.info(
+        '<div style="text-align:center;"><p>Bağlam Menüsü<p><label class="switch"><input id="xdz" onchange="contextMenu()" type="checkbox"><span class="slider round"></span></label></div>'
     );
+    toastr.info('<div style="text-align:center;"><p> Current Bitcord Version</p> <p>' + bitcord_version + "<p></div>");
 
     rootDiv("visible");
 }

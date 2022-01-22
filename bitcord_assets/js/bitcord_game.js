@@ -3,7 +3,7 @@ function start_game() {
     nextStage("sahne_deneme");
 }
 
-function sahne_() {
+function sahne_bitcord() {
     //incele youtube modal türkçe olarak eklenecek
     mesaj_getir("bitcord", buton_olustur("bas", "valorant_videosu()"));
     // get_callModal("bitcord",);
