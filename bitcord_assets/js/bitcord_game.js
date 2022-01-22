@@ -3,17 +3,18 @@ function start_game() {
     nextStage("sahne_deneme");
 }
 
-function sahne_deneme() {
+function sahne_() {
     //incele youtube modal türkçe olarak eklenecek
-    youtube_modal('https://www.youtube.com/embed/NnPWfPNvy6A', null, null, null,
-        "Beğen", () => {
-            alert("asdasd");
-        }, "Beğenme", () => {
-            alert("asdasd");
-        }, "Kapat", () => {
-            alert("asdasd");
-        }
-    );
-    // mesaj_getir("bitcord", buton_olustur("bas","youtube_modal('https://www.youtube.com/embed/NnPWfPNvy6A')"));
+    mesaj_getir("bitcord", buton_olustur("bas", "valorant_videosu()"));
     // get_callModal("bitcord",);
+}
+
+function valorant_videosu() {
+    youtube_panel('https://www.youtube.com/embed/NnPWfPNvy6A', null, null, null, 'Beğen', () => {
+        alert('asdasd');
+    }, 'Beğenme', () => {
+        alert('asdasd');
+    }, 'Kapat', () => {
+        alert('asdasd');
+    })
 }

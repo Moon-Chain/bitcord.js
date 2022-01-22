@@ -3,8 +3,8 @@
  *  Uyumlu olduğu Bitcord sürümü: version beta_1.0.1 - Bitcord
  */
 
-function mesaj_getir(karakter_isim_veya_id,mesaj, fonksiyon_baslatma_zamani = 0, beraber_calisacak_fonksiyon = null) {
-    return getMessage(karakter_isim_veya_id,mesaj, fonksiyon_baslatma_zamani, beraber_calisacak_fonksiyon);
+function mesaj_getir(karakter_isim_veya_id, mesaj, fonksiyon_baslatma_zamani = 0, beraber_calisacak_fonksiyon = null) {
+    return getMessage(karakter_isim_veya_id, mesaj, fonksiyon_baslatma_zamani, beraber_calisacak_fonksiyon);
 };
 
 function arama_getir(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0, otomatik_kapatma_zamani = null, arama_kabul_edilirse, arama_reddedilirse, arama_kacirilirsa, konusma_bittiginde_kapatilirsa, konusma_bitmeden_kapatilirsa) {
@@ -15,7 +15,7 @@ function konusma_sesi_oynat(karakter_isim_veya_id, ses_dosyasi, fonksiyon_baslat
     return playSpeechSound(karakter_isim_veya_id, ses_dosyasi, fonksiyon_baslatma_zamani, yeni_arama);
 };
 
-function sahneyi_getir(sahne_adi, fonksiyon_baslatma_zamani = 0){
+function sahneyi_getir(sahne_adi, fonksiyon_baslatma_zamani = 0) {
     return nextStage(sahne_adi, fonksiyon_baslatma_zamani);
 }
 
@@ -74,3 +74,7 @@ function ekran_getir(karakter_isim_veya_id, tip = "message") {
 function sayac_olustur(fonksiyon_baslatma_zamani = 0) {
     return createTimer(fonksiyon_baslatma_zamani);
 };
+
+function youtube_panel(link, panel_genislik = 760, panel_yukseklik = 415, id = null, kabul_buton_metni = null, kabul_edilirse = null, reddet_buton_metni = null, reddedilirse = null, iptal_buton_metni = null, iptal_edilirse = null) {
+    return youtube_modal(link, panel_genislik, panel_yukseklik, id, kabul_buton_metni, kabul_edilirse, reddet_buton_metni, reddedilirse, iptal_buton_metni, iptal_edilirse);
+}
