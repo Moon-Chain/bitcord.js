@@ -1,7 +1,6 @@
 /*!
- *  bitcord_beta_1.0.3.js
  *  Bitcord Framework version beta_1.0.3 by @moon-chain - https://moon-chain.github.io - Bitcord
- *  License - https://moon-chain.github.io/bitcord/license (CSS: MIT License) 
+ *  License - https://github.com/Moon-Chain/bitcord/blob/main/LICENSE (CSS: MIT License) 
  */
 var startTime = Date.now();
 var bitcord_version = "beta_1.0.3";
