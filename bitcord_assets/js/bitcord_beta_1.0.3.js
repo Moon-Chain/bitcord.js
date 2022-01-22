@@ -1265,7 +1265,7 @@ if (!debug_mode) {
         "closeButton": false
     }
     toastr.info(
-        '<div style="text-align:center;"><p>Bağlam Menüsü<p><label class="switch"><input id="xdz" onchange="contextMenu()" type="checkbox"><span class="slider round"></span></label></div>'
+        '<div style="text-align:center;"><p>Bağlam Menüsü (Sağ tık)<p><label class="switch"><input id="xdz" onchange="contextMenu()" type="checkbox"><span class="slider round"></span></label></div>'
     );
 
     toastr.options = {

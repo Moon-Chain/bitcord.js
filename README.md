@@ -1,6 +1,5 @@
 # bitcord
-Bitcord - (Discord Simulation Framework)
-Last Version - Beta_1.0.3
+Bitcord - (Discord Simulation Framework) | Last Version: Beta_1.0.3
 
 ![myfile](bitcord_assets/gifs/debug_mode.gif)
 
