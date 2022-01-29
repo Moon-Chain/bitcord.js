@@ -5,7 +5,7 @@ Bitcord - (Discord Simulation Framework) | Last Version: Beta_1.0.3
 
 ------------------------------- Başlarken -------------------------------
 
-* Hikaye yazmak için geliştirici modunu kullanmanız tavsiye edilir
+* Hikaye yazabilmek ve kılavuz desteği alabilmek için geliştirici modunu kullanmanız tavsiye edilir
 
 (Sol üstteki Discord logosuna 3 defa tıklayınca aktifleşir)
 
@@ -32,13 +32,13 @@ Bitcord - (Discord Simulation Framework) | Last Version: Beta_1.0.3
 
 ------------------------------- Fonksiyonlar -------------------------------
 
-1. mesaj_getir(karakter_isim_veya_id,mesaj, fonksiyon_baslatma_zamani = 0, beraber_calisacak_fonksiyon = null);
+1. mesaj_getir(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0, mesaj, bildirim_sesi = true, beraber_calisacak_fonksiyon = null);
 
 2. arama_getir(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0, otomatik_kapatma_zamani = null, arama_kabul_edilirse, arama_reddedilirse, arama_kacirilirsa, konusma_bittiginde_kapatilirsa, konusma_bitmeden_kapatilirsa);
 
 3. konusma_sesi_oynat(karakter_isim_veya_id, ses_dosyasi, fonksiyon_baslatma_zamani = 0, yeni_arama = true);
 
-4. sahneyi_getir(sahne_adi, fonksiyon_baslatma_zamani = 0);
+4. sahne_getir(sahne_adi, fonksiyon_baslatma_zamani = 0);
 
 5. karakter_getir(karakter_isim_veya_id);
 

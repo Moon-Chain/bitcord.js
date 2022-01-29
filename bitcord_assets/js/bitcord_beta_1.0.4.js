@@ -1,9 +1,10 @@
 /*!
- *  Bitcord Framework version beta_1.0.3 by @moon-chain - https://moon-chain.github.io - Bitcord
- *  License - https://github.com/Moon-Chain/bitcord/blob/main/LICENSE (CSS: MIT License) 
- */
+ *  Bitcord Framework version beta_1.0.3 - https://moon-chain.github.io/bitcord
+ *  by @moon-chain - https://moon-chain.github.io
+ *  License - https://github.com/Moon-Chain/bitcord/blob/main/LICENSE (MIT License)
+*/
 var startTime = Date.now();
-var bitcord_version = "beta_1.0.3";
+var bitcord_version = "beta_1.0.4";
 var timerInterval;
 var timerToast;
 var debug_mode = !1;
@@ -279,11 +280,11 @@ function character_content_change_void() {
     }
 }
 
-function getM(character_value, message) {
+function getM(character_value, message, notification_sound = true) {
     character = get_character(character_value);
     character_chat = chat_list[character.id];
     character_chat.push(message);
-    notification(character.id, "message");
+    notification(character.id, "message", notification_sound);
 
     if (active_screen_id == character.id) {
         message_line_html =
@@ -316,14 +317,14 @@ function getM(character_value, message) {
     }
 }
 
-function getMessage(character_value, message, ms = 0, with_func = null) {
+function getMessage(character_value, ms = 0, message, notification_sound = true, with_func = null) {
     character = get_character(character_value);
     var obj = {}
     // clear_gml yapıldıktan sonra çakışmaması için 1ms süre timeout verildi
     return setTimeout(function () {
         obj.timeout_func =
             setTimeout(function () {
-                getM(character_value, message);
+                getM(character_value, message, notification_sound);
                 if (with_func != null) {
                     with_func();
                 }
@@ -596,7 +597,7 @@ function notifications_clear(character_value, time) {
     }, time);
 }
 
-function notification(character_value, type, play_sound = null) {
+function notification(character_value, type, play_sound = true) {
     var find_user;
     character = get_character(character_value);
 
@@ -628,7 +629,7 @@ function notification(character_value, type, play_sound = null) {
         character.unread_message + '</span></div></div>';
 
     if (type == "message") {
-        if (play_sound == null) {
+        if (play_sound == true) {
             discord_notification_sound.play();
         }
         if (find_user != null) {
@@ -1162,7 +1163,7 @@ function getAllStages() {
     stages.push("start_game");
     for (var i in window) {
         if ((typeof window[i]).toString() == "function") {
-            if (window[i].name.search("sahne") != -1 && window[i].name.search("sahneyi_getir") == -1 && stages.indexOf(window[i].name) == -1) {
+            if (window[i].name.search("sahne") != -1 && window[i].name.search("sahne_getir") == -1 && stages.indexOf(window[i].name) == -1) {
                 stages.push(window[i].name);
             }
         }

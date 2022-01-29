@@ -1,10 +1,10 @@
 /*!
  *  Bu Türkçe yama paketi geliştiriciler için tasarlanmıştır
- *  Uyumlu olduğu Bitcord sürümü: version beta_1.0.3 - Bitcord
+ *  Uyumlu olduğu Bitcord sürümü: version beta_1.0.4 - Bitcord
  */
 
-function mesaj_getir(karakter_isim_veya_id, mesaj, fonksiyon_baslatma_zamani = 0, beraber_calisacak_fonksiyon = null) {
-    return getMessage(karakter_isim_veya_id, mesaj, fonksiyon_baslatma_zamani, beraber_calisacak_fonksiyon);
+function mesaj_getir(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0, mesaj, bildirim_sesi = true, beraber_calisacak_fonksiyon = null) {
+    return getMessage(karakter_isim_veya_id, fonksiyon_baslatma_zamani, mesaj, bildirim_sesi, beraber_calisacak_fonksiyon);
 };
 
 function arama_getir(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0, otomatik_kapatma_zamani = null, arama_kabul_edilirse, arama_reddedilirse, arama_kacirilirsa, konusma_bittiginde_kapatilirsa, konusma_bitmeden_kapatilirsa) {
@@ -15,7 +15,7 @@ function konusma_sesi_oynat(karakter_isim_veya_id, ses_dosyasi, fonksiyon_baslat
     return playSpeechSound(karakter_isim_veya_id, ses_dosyasi, fonksiyon_baslatma_zamani, yeni_arama);
 };
 
-function sahneyi_getir(sahne_adi, fonksiyon_baslatma_zamani = 0) {
+function sahne_getir(sahne_adi, fonksiyon_baslatma_zamani = 0) {
     return nextStage(sahne_adi, fonksiyon_baslatma_zamani);
 }
 
