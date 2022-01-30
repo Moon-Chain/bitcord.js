@@ -277,9 +277,9 @@ function character_content_change(character_value, time = 0, content_name, new_v
         }
 
         if (content_name == "img_url") {
-            getMessage(character_value, '<i style="color:#5865F2" class="bx bxs-edit-alt"></i>' + character.display_name + ' | kullanıcısı <i style="color:#5865f2">' + message_text + '</i> değiştirdi.' + createImage(JSON.parse(old_value), null, null, "servericon") + " -> " + createImage(new_value, null, null, "servericon"));
+            getMessage(character_value, 0, '<i style="color:#5865F2" class="bx bxs-edit-alt"></i>' + character.display_name + ' | kullanıcısı <i style="color:#5865f2">' + message_text + '</i> değiştirdi.' + createImage(JSON.parse(old_value), null, null, "servericon") + " -> " + createImage(new_value, null, null, "servericon"));
         } else {
-            getMessage(character_value, '<i style="color:#5865F2" class="bx bxs-edit-alt"></i>' + JSON.parse(old_display_name) + ' kullanıcısı <i style="color:#5865f2">' + message_text + '</i>  ' + new_value + ' olarak  değiştirdi.');
+            getMessage(character_value, 0, '<i style="color:#5865F2" class="bx bxs-edit-alt"></i>' + JSON.parse(old_display_name) + ' kullanıcısı <i style="color:#5865f2">' + message_text + '</i>  ' + new_value + ' olarak  değiştirdi.');
         }
     }, time);
 }
@@ -535,7 +535,7 @@ function missedCall(character_value) {
     character = get_character(character_value);
     stopSound();
     discord_leave_sound.play();
-    getMessage(character_value, '<i style="color:#ED4245" class="bx bxs-phone"></i>' + character.display_name + ' kullanıcısından bir cevapsız arama.');
+    getMessage(character_value, 0, '<i style="color:#ED4245" class="bx bxs-phone"></i>' + character.display_name + ' kullanıcısından bir cevapsız arama.');
 }
 
 function closeCall() {

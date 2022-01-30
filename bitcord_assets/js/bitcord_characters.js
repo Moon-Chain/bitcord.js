@@ -117,12 +117,34 @@
          closeCallST: false
      }
      characters[10] = {
-        id: 10,
-        img_url: profile_file + "moonarctic_games.webp",
-        code_name: "mag",
-        name: "MoonArctic",
-        surname: "Games",
-        display_name: "MoonArctic Games",
+         id: 10,
+         img_url: profile_file + "moonarctic_games.webp",
+         code_name: "mag",
+         name: "MoonArctic",
+         surname: "Games",
+         display_name: "MoonArctic Games",
+         unread_message: 0,
+         show: false,
+         closeCallST: false
+     }
+     characters[11] = {
+         id: 11,
+         img_url: profile_file + "hacked.webp",
+         code_name: "hacked",
+         name: "Anonymous",
+         surname: "",
+         display_name: "Anonymous",
+         unread_message: 0,
+         show: false,
+         closeCallST: false
+     }
+     characters[12] = {
+        id: 12,
+        img_url: profile_file + "eset.webp",
+        code_name: "eset",
+        name: "Eset",
+        surname: "Nod32",
+        display_name: "Eset Antivirüs",
         unread_message: 0,
         show: false,
         closeCallST: false
