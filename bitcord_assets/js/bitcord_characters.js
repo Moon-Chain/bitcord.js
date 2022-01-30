@@ -116,3 +116,14 @@
          show: false,
          closeCallST: false
      }
+     characters[10] = {
+        id: 10,
+        img_url: profile_file + "moonarctic_games.webp",
+        code_name: "mag",
+        name: "MoonArctic",
+        surname: "Games",
+        display_name: "MoonArctic Games",
+        unread_message: 0,
+        show: false,
+        closeCallST: false
+    }
