@@ -1,10 +1,10 @@
 /*!
- *  Bitcord Framework version beta_1.0.3 - https://moon-chain.github.io/bitcord
+ *  Bitcord Framework version beta_1.0.5 - https://moon-chain.github.io/bitcord
  *  by @moon-chain - https://moon-chain.github.io
  *  License - https://github.com/Moon-Chain/bitcord/blob/main/LICENSE (MIT License)
-*/
+ */
 var startTime = Date.now();
-var bitcord_version = "beta_1.0.4";
+var bitcord_version = "beta_1.0.5";
 var timerInterval;
 var timerToast;
 var debug_mode = !1;
@@ -13,6 +13,7 @@ var mic = document.getElementById("microphone_enable");
 var context_menu = false;
 var active_call = false;
 var active_call_id = null;
+var active_call_guid = null;
 var active_screen_id = null;
 var call_interval;
 var startCallST;
@@ -110,6 +111,15 @@ function sound(src) {
 }
 
 var callbackArr = [];
+
+function CreateGuid() {
+    function _p8(s) {
+        var p = (Math.random().toString(16) + "000000000").substr(2, 8);
+        return s ? "-" + p.substr(0, 4) + "-" + p.substr(4, 4) : p;
+    }
+    // return _p8() + _p8(true) + _p8(true) + _p8();
+    return _p8() + "-" + _p8();
+}
 
 function characterSwitch(casestmt, callback) {
     var callbackObj = {};
@@ -227,7 +237,7 @@ function stopTimer() {
     toast_list.innerHTML = toast_list.innerHTML + '<li>' + timerVal + '</li>';
 }
 
-function character_content_change(character_value, content_name, new_value, time = 0, program = false) {
+function character_content_change(character_value, time = 0, content_name, new_value, program = false) {
     char_c = setTimeout(function () {
         character = get_character(character_value);
         if (content_name == "img_url" && !program) {
@@ -339,9 +349,9 @@ function deleteMessages(character_value = true, time = 0) {
             characters.forEach(ch => {
                 chat_list[ch.id] = [];
             });
-           if(JSON.stringify(last_screen) != JSON.stringify({})){
-               get_screen(last_screen.char_id, last_screen.name);
-           }
+            if (JSON.stringify(last_screen) != JSON.stringify({})) {
+                get_screen(last_screen.char_id, last_screen.name);
+            }
         } else {
             character = get_character(character_value);
             chat_list[character.id] = [];
@@ -494,7 +504,9 @@ function callModal(character_value, close_time, if_accept, if_denied, if_missed,
                     ccst.closeCallST = false;
                 }
             });
-            close_time != undefined || close_time != null ? closeCall_ST(character_value, close_time) : null;
+            var cguid = CreateGuid();
+            active_call_guid = JSON.parse(JSON.stringify(cguid));
+            close_time != undefined || close_time != null ? closeCall_ST(character_value, close_time, cguid) : null;
             active_call_id = character.id;
             active_call = true;
 
@@ -537,7 +549,7 @@ function closeCall() {
         notification(character_value, "end_call");
         get_screen(character_value, "only_message")
         clearInterval(call_interval);
-        clearTimeout(startCallST)
+        clearTimeout(startCallST);
         if (speech_ended) {
             if_call_closed_function = variable_if_call_closed;
         } else {
@@ -554,17 +566,19 @@ function closeCall() {
     }
 }
 
-function closeCall_ST(character_value, time = 0) {
-    character = get_character(character_value);
-    character.closeCallST = true;
-    return setTimeout(function () {
-        closeCall_with_control(character_value)
-    }, time)
+function closeCall_ST(character_value, time = 0, call_guid = null) {
+    if(call_guid != null){
+        character = get_character(character_value);
+        character.closeCallST = true;
+        return setTimeout(function () {
+            closeCall_with_control(character_value, call_guid)
+        }, time)
+    }
 }
 
-function closeCall_with_control(character_value) {
+function closeCall_with_control(character_value, call_guid = null) {
     character = get_character(character_value);
-    if (active_call_id == character.id && character.closeCallST == true) {
+    if (active_call_id == character.id && character.closeCallST == true && active_call_guid == call_guid) {
         closeCall();
         character.closeCallST = false;
     }
@@ -811,7 +825,7 @@ function get_screen(character_value, type) {
     });
 }
 
-function playSpeechSound(character_value, speech_sound, time = 1500, new_call = true) {
+function playSpeechSound(character_value, time = 1500, speech_sound, new_call = true) {
     if (new_call) {
         discord_join_sound.play();
     }
@@ -855,6 +869,10 @@ function createImage(img_src, img_onclick_val, img_style = null, img_class = nul
     class_html = img_class != undefined || img_class != null ? 'class="bpoint ' + img_class + '"' : 'class="bpoint"';
     var buttonhtml = '<img ' + id_html + ' src="' + img_src + '"' + style_html + " " + onclick_html + " " + class_html + '>';
     return buttonhtml;
+}
+
+function createEmoji(emoji_name){
+    return createImage("bitcord_assets/images/emogies/" + emoji_name);
 }
 
 function destroyThis(variable) {

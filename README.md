@@ -1,5 +1,5 @@
 # bitcord
-Bitcord - (Discord Simulation Framework) | Last Version: Beta_1.0.4
+Bitcord - (Discord Simulation Framework) | Last Version: Beta_1.0.5
 
 ![myfile](bitcord_assets/gifs/debug_mode.gif)
 
@@ -36,7 +36,7 @@ Bitcord - (Discord Simulation Framework) | Last Version: Beta_1.0.4
 
 2. arama_getir(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0, otomatik_kapatma_zamani = null, arama_kabul_edilirse, arama_reddedilirse, arama_kacirilirsa, konusma_bittiginde_kapatilirsa, konusma_bitmeden_kapatilirsa);
 
-3. konusma_sesi_oynat(karakter_isim_veya_id, ses_dosyasi, fonksiyon_baslatma_zamani = 0, yeni_arama = true);
+3. konusma_sesi_oynat(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0, ses_dosyasi,  yeni_arama = true);
 
 4. sahne_getir(sahne_adi, fonksiyon_baslatma_zamani = 0);
 
@@ -44,7 +44,7 @@ Bitcord - (Discord Simulation Framework) | Last Version: Beta_1.0.4
 
 6. random_karakter_getir();
 
-7. karakterin_özelligini_degistir(karakter_isim_veya_id, ozellik_adi, yeni_deger, fonksiyon_baslatma_zamani = 0, program_veya_manuel = false);
+7. karakterin_özelligini_degistir(karakter_isim_veya_id, fonksiyon_baslatma_zamani = 0, ozellik_adi, yeni_deger,  program_veya_manuel = false);
 
 8. mesaj_gecmisini_sil(karakter_isim_veya_id = null, spesifik_veya_herkes, fonksiyon_baslatma_zamani = 0);
 
@@ -71,4 +71,6 @@ Bitcord - (Discord Simulation Framework) | Last Version: Beta_1.0.4
 19. sayac_olustur(fonksiyon_baslatma_zamani = 0);
 
 20. youtube_panel(link, panel_genislik = 760, panel_yukseklik = 415, id = null, kabul_buton_metni = null, kabul_edilirse = null, reddet_buton_metni = null, reddedilirse = null, iptal_buton_metni = null, iptal_edilirse = null);
+
+21. emoji_olustur(emoji_adi);
 
