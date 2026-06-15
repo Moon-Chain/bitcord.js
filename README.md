@@ -62,7 +62,10 @@ veya VS Code kullanıyorsan **Live Server** eklentisiyle aç.
 
 ### 3. Karakter Ekle
 
-`bitcord_assets/js/bitcord_characters.js` dosyasına karakter tanımla:
+`bitcord_assets/js/bitcord_characters.js` dosyasına karakter tanımla. Profil resmini `bitcord_assets/images/profile/` klasörüne koy (`.webp` önerilir).
+
+<details>
+<summary>Örnek karakter tanımı</summary>
 
 ```js
 characters[13] = {
@@ -78,11 +81,14 @@ characters[13] = {
 }
 ```
 
-Profil resmini `bitcord_assets/images/profile/` klasörüne koy (`.webp` önerilir).
+</details>
 
 ### 4. Senaryo Yaz
 
 `bitcord_assets/js/bitcord_game.js` dosyasında senaryonu fonksiyon olarak yaz:
+
+<details>
+<summary>Örnek senaryo</summary>
 
 ```js
 function start_game() {
@@ -102,6 +108,8 @@ function ilk_sahne() {
     );
 }
 ```
+
+</details>
 
 ---
 
@@ -137,6 +145,9 @@ bitcord.js/
 #### `mesaj_getir()`
 Karakterden mesaj gönderir.
 
+<details>
+<summary>Parametreler & Örnek</summary>
+
 ```js
 mesaj_getir(
     karakter,           // string | Karakterin code_name'i
@@ -151,20 +162,32 @@ mesaj_getir("berkay", 1000, "Selam! Nasılsın?");
 mesaj_getir("berkay", 2000, "Bak şu butona tıkla →" + buton_olustur("Tıkla", "alert('hey!')", null, "bbtn bbtn-blue"), false);
 ```
 
+</details>
+
 #### `mesaj_gecmisini_sil()`
 Mesaj geçmişini temizler.
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 mesaj_gecmisini_sil(karakter, süre);    // Belirli karakterin geçmişi
 mesaj_gecmisini_sil(null, süre, true);  // Tüm geçmişi temizle
 ```
 
+</details>
+
 #### `mesaj_getir_talebini_sil()`
 Henüz gelmemiş mesaj isteklerini iptal eder.
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 mesaj_getir_talebini_sil("berkay", 0);
 ```
+
+</details>
 
 ---
 
@@ -172,6 +195,9 @@ mesaj_getir_talebini_sil("berkay", 0);
 
 #### `arama_getir()`
 Gelen arama ekranını açar.
+
+<details>
+<summary>Parametreler & Örnek</summary>
 
 ```js
 arama_getir(
@@ -194,12 +220,19 @@ arama_getir("mee6", 1000, 15000,
 );
 ```
 
+</details>
+
 #### `aramayi_kapat()`
 Aktif aramayı kapatır.
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 aramayi_kapat("mee6", 5000);
 ```
+
+</details>
 
 ---
 
@@ -207,6 +240,9 @@ aramayi_kapat("mee6", 5000);
 
 #### `konusma_sesi_oynat()`
 Karaktere ses dosyası oynatır.
+
+<details>
+<summary>Parametreler & Örnek</summary>
 
 ```js
 konusma_sesi_oynat(
@@ -220,19 +256,31 @@ konusma_sesi_oynat(
 konusma_sesi_oynat("mee6", 1000, konusma_sesi_bul("rising_spirits_music.mp3"));
 ```
 
+</details>
+
 #### `konusma_bitis_belirteci()`
 Konuşmanın bittiğini işaretler (konuşma kabarcığı animasyonunu durdurur).
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 konusma_bitis_belirteci("mee6", 16000);
 ```
 
+</details>
+
 #### `konusma_sesi_bul()`
 Ses dosyasını `speech_sounds/` klasöründen bulur.
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 var ses = konusma_sesi_bul("konusma.mp3");
 ```
+
+</details>
 
 ---
 
@@ -241,21 +289,34 @@ var ses = konusma_sesi_bul("konusma.mp3");
 #### `karakter_getir()`
 Karakterin nesnesini döndürür.
 
+<details>
+<summary>Örnek</summary>
+
 ```js
 var karakter = karakter_getir("berkay");
 console.log(karakter.display_name); // "moonchain"
 ```
 
+</details>
+
 #### `random_karakter_getir()`
 Rastgele bir karakter döndürür.
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 var rastgele = random_karakter_getir();
 mesaj_getir(rastgele.code_name, 0, "Ben rastgele seçildim!");
 ```
 
+</details>
+
 #### `karakterin_özelligini_degistir()`
 Karakterin herhangi bir özelliğini çalışma zamanında değiştirir.
+
+<details>
+<summary>Parametreler & Örnek</summary>
 
 ```js
 karakterin_özelligini_degistir(
@@ -271,8 +332,13 @@ karakterin_özelligini_degistir("berkay", 2000, "display_name", "h4ck3r m00n");
 karakterin_özelligini_degistir("berkay", 2000, "img_url", "hacked.webp");
 ```
 
+</details>
+
 #### `sahne_getir()`
 Senaryo fonksiyonunu zamanlayıcıyla çalıştırır.
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 sahne_getir("sahne_adi", başlangıç_süresi);
@@ -281,12 +347,17 @@ sahne_getir("sahne_adi", başlangıç_süresi);
 sahne_getir("boss_fight", 5000); // 5 saniye sonra sahneyi başlat
 ```
 
+</details>
+
 ---
 
 ### Interaktif Bileşenler
 
 #### `buton_olustur()`
-Tıklanabilir buton HTML'i döndürür.
+Tıklanabilir buton HTML'i döndürür. **Mevcut stiller:** `bbtn-blue` `bbtn-red` `bbtn-green`
+
+<details>
+<summary>Parametreler & Örnek</summary>
 
 ```js
 buton_olustur(
@@ -302,24 +373,32 @@ var buton = buton_olustur("Kabul Et", "kabul_et()", null, "bbtn bbtn-blue");
 mesaj_getir("bitcord", 0, "Anlaşmayı kabul ediyor musun? " + buton);
 ```
 
-**Mevcut buton stilleri:** `bbtn-blue` `bbtn-red` `bbtn-green`
+</details>
 
 #### `gorsel_olustur()`
 Tıklanabilir görsel HTML'i döndürür.
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 var gorsel = gorsel_olustur("bitcord_assets/gifs/debug_mode.gif", "gorsel_tiklandi()", "width:400px;");
 mesaj_getir("bitcord", 0, "Şuna bak: " + gorsel);
 ```
 
+</details>
+
 #### `emoji_olustur()`
-Özel emoji ekler.
+Özel emoji ekler. Emojiler `bitcord_assets/images/emogies/` klasöründen gelir.
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 mesaj_getir("berkay", 0, "Nasılsın? " + emoji_olustur("1.png"));
 ```
 
-Emojiler `bitcord_assets/images/emogies/` klasöründen gelir.
+</details>
 
 ---
 
@@ -327,6 +406,9 @@ Emojiler `bitcord_assets/images/emogies/` klasöründen gelir.
 
 #### `fake_bildirim()`
 Discord bildirimi simüle eder.
+
+<details>
+<summary>Parametreler & Örnek</summary>
 
 ```js
 fake_bildirim(
@@ -339,15 +421,25 @@ fake_bildirim(
 fake_bildirim("berkay", "message");
 ```
 
+</details>
+
 #### `ekran_getir()`
 Karakterin mesaj ekranını açar.
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 ekran_getir("berkay", "message");
 ```
 
+</details>
+
 #### `youtube_panel()`
 Mesaj ekranında YouTube videosu açar.
+
+<details>
+<summary>Parametreler & Örnek</summary>
 
 ```js
 youtube_panel(
@@ -372,6 +464,8 @@ youtube_panel(
 );
 ```
 
+</details>
+
 ---
 
 ### Yardımcı Araçlar
@@ -379,16 +473,26 @@ youtube_panel(
 #### `sayac_olustur()`
 Toast üzerinde milisaniye sayacı başlatır (senaryo zamanlama için).
 
+<details>
+<summary>Örnek</summary>
+
 ```js
 sayac_olustur(0); // Hemen başlat
 ```
 
+</details>
+
 #### `mesaj_sablonu_olustur()`
 Sonradan gönderilmek üzere mesaj şablonu oluşturur.
+
+<details>
+<summary>Örnek</summary>
 
 ```js
 mesaj_sablonu_olustur("berkay", "Bu şablondan geldi");
 ```
+
+</details>
 
 ---
 
